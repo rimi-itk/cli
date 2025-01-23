@@ -1,3 +1,42 @@
+> [!NOTE]
+> This is a fork of <https://github.com/cli/cli> with a [branch](/rimi-itk/cli/tree/feature/extension-completion)
+> including changes lifted from <https://github.com/cli/cli/pull/8610/files>.
+>
+> Depending on your installed [GitHub CLI extensions](https://cli.github.com/manual/gh_extension) the changes may have
+> accidental side effects (see <https://github.com/cli/cli/pull/8610#issuecomment-1946027362> for some details), so use
+> at your own risk. It works perfectly for me!
+>
+> ## Installation
+>
+> First build the custom `gh` binary:
+>
+> ``` shell name=install
+> git clone --branch feature/extension-completion https://github.com/rimi-itk/cli
+> cd cli
+> make
+> ```
+>
+> Add the `bin/` folder to your path. If using [Zsh](https://www.zsh.org/), run something like
+>
+> ``` shell name=zsh-export-path
+> echo "export PATH=""$PWD/bin:\$PATH""" >> ~/.zshrc
+> ```
+>
+> See <https://cli.github.com/manual/gh_completion> to set up completions.
+>
+> ## Update
+>
+> Assuming the custom `gh` binary is in your path, you can update it by running
+>
+> ``` shell name=update
+> cd $(dirname $(dirname $(which gh)))
+> git fetch
+> git reset --hard origin/feature/extension-completion
+> make
+> ```
+>
+> ----------------------------------------------------------------------------------------------------------------------
+
 # GitHub CLI
 
 `gh` is GitHub on the command line. It brings pull requests, issues, and other GitHub concepts to the terminal next to where you are already working with `git` and your code.
